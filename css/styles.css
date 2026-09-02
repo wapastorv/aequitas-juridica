@@ -33,7 +33,7 @@ body{
 }
 
 /* ---------- Estructura del deck ---------- */
-#deck{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden}
+#deck{position:relative;width:100%;height:100vh;height:100dvh;height:calc(var(--vh,1vh) * 100);overflow:hidden}
 
 .slide{
   position:absolute;
@@ -41,7 +41,7 @@ body{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:clamp(3.2rem,7vh,5rem) var(--paso-x) clamp(4.2rem,9vh,5.5rem);
+  padding:clamp(3.2rem,7vh,5rem) var(--paso-x) calc(clamp(4.6rem,10vh,6rem) + env(safe-area-inset-bottom));
   background:var(--papel);
   opacity:0;
   visibility:hidden;
@@ -291,7 +291,7 @@ body.oscuro .control{color:#93A6A0}
 /* ---------- Móviles muy pequeños (≤ 380px) ---------- */
 @media (max-width:380px){
   :root{--paso-x:1.1rem}
-  .slide{padding-top:clamp(2rem,7vh,3rem);padding-bottom:clamp(3.6rem,9vh,4.5rem)}
+  .slide{padding-top:clamp(2rem,7vh,3rem);padding-bottom:calc(clamp(3.8rem,10vh,4.8rem) + env(safe-area-inset-bottom))}
   .ficha{padding:1.2rem 1.15rem}
   .idea{padding:1.1rem 1rem}
   .control__grupo{gap:.3rem}
@@ -301,7 +301,7 @@ body.oscuro .control{color:#93A6A0}
 
 /* ---------- Móviles en horizontal / pantallas de poca altura ---------- */
 @media (max-height:480px) and (orientation:landscape){
-  .slide{justify-content:flex-start;padding-top:clamp(1.4rem,6vh,2.2rem);padding-bottom:clamp(2.6rem,8vh,3.4rem)}
+  .slide{justify-content:flex-start;padding-top:clamp(1.4rem,6vh,2.2rem);padding-bottom:calc(clamp(2.8rem,9vh,3.6rem) + env(safe-area-inset-bottom))}
   .marca{font-size:clamp(1.9rem,5.5vw,3rem)}
   h2{font-size:clamp(1.5rem,3vw,2.2rem)}
   .ideas{margin-top:1rem}

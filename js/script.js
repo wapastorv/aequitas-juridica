@@ -1,6 +1,18 @@
 (function(){
   "use strict";
 
+  // Corrige el alto real de la ventana en navegadores embebidos (WhatsApp,
+  // Instagram, Facebook, etc.) donde 100vh/100dvh no reflejan el viewport
+  // visible y provocan que la barra de control tape el contenido inferior.
+  function ajustarAltoVisible(){
+    var alto = (window.visualViewport ? window.visualViewport.height : window.innerHeight) * 0.01;
+    document.documentElement.style.setProperty("--vh", alto + "px");
+  }
+  ajustarAltoVisible();
+  window.addEventListener("resize", ajustarAltoVisible);
+  window.addEventListener("orientationchange", ajustarAltoVisible);
+  if (window.visualViewport) window.visualViewport.addEventListener("resize", ajustarAltoVisible);
+
   var slides   = Array.prototype.slice.call(document.querySelectorAll(".slide"));
   var total    = slides.length;
   var barra    = document.getElementById("barra");
