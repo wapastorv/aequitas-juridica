@@ -193,6 +193,8 @@ em{font-style:italic;color:var(--pino);font-weight:500}
   margin-bottom:1.8rem;
 }
 .formula b{color:var(--pino);font-weight:600}
+.slide--oscura .formula{color:#B9C7C2}
+.slide--oscura .formula b{color:var(--laton-suave)}
 .declaracion{
   font-size:clamp(1.25rem,2.35vw,1.95rem);
   line-height:1.42;
